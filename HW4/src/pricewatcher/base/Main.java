@@ -149,10 +149,12 @@ public class Main extends JFrame {
      * the item. 
      * @throws URISyntaxException 
      * @throws IOException */
-    public void viewPageClicked() {
-//    	Item j = ItemManager.listModel.get(0);
+    public void viewPageClicked() { // String urlT
+    	
+//    	JList<Item> j = list;
     	String urlT = item.getURL();	
-    	if(true) {
+//    	if(true) {
+    	
     		if (urlValid(urlT)) { // Desktop.isDesktopSupported()
             // Windows
         	try {
@@ -180,9 +182,9 @@ public class Main extends JFrame {
 //            catch (IOException e) {
 //            }
             }
-    	}
-    	else
-    		;
+  //    	}
+  //    	else
+  //    		;
 //    	showMessage("View clicked!");
     }
     
@@ -349,7 +351,18 @@ public class Main extends JFrame {
 
         search=new JButton(new ImageIcon(getImage("search.png")));
         skip=new JButton(new ImageIcon(getImage("left-chevron.png")));
+        skip.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+    	}	});
+        
+        
         forward=new JButton(new ImageIcon(getImage("right-chevron.png")));
+        forward.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+    	}	});
+        
         
         RemoveItem = new JButton(new ImageIcon(getImage("minus.png")));
         
@@ -358,10 +371,7 @@ public class Main extends JFrame {
         
         Launch = new JButton(new ImageIcon(getImage("web.png")));
         
-        Launch.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        			viewPageClicked();
-        	}	});
+ 
         
         
         
@@ -405,6 +415,11 @@ public class Main extends JFrame {
 			
     		}
     	});
+    	
+        Launch.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        			viewPageClicked();
+        	}	});
     	
         //Temporary Action Listener for RemoveItem
     	RemoveItem.addActionListener(new ActionListener() {

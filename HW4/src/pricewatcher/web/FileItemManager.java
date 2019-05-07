@@ -29,6 +29,10 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 		}
 		return theInstance;
 		
+		
+		
+		
+		
 	}
 	
 	public void start() {
