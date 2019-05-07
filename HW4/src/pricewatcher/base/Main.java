@@ -149,19 +149,20 @@ public class Main extends JFrame {
      * the item. 
      * @throws URISyntaxException 
      * @throws IOException */
-    private void viewPageClicked() {   
-    	if (Desktop.isDesktopSupported()) {
+    private void viewPageClicked() { 
+    	String urlT = item.getURL();	
+    	
+    	if (urlValid(urlT)) { // Desktop.isDesktopSupported()
             // Windows
             try {
 				Desktop desktop = Desktop.getDesktop();
-//				desktop.browse(new URI(Item.getURL()));
-		    	String url = item.getURL();
-				desktop.browse(new URI(url));
-			} catch (IOException e) {
+				desktop.browse(new URI(urlT));
+			} catch (Exception e) {
 				e.printStackTrace();
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			}
+			} 
+//            catch (URISyntaxException e) {
+//				e.printStackTrace();
+//			}
         } else {
             ;
         	Runtime runtime = Runtime.getRuntime();
@@ -175,11 +176,12 @@ public class Main extends JFrame {
         }
     	showMessage("View clicked!");
     }
-    /*
-     * 
+    
+    /* 
     /** Callback to be invoked when the view-page icon is clicked.
      * Launch a (default) web browser by supplying the URL of
      * the item.
+     
     private void viewPageClicked(){
     	showMessage("Item Page Clicked");
     	try {
@@ -187,10 +189,19 @@ public class Main extends JFrame {
     	desktop.browse(new URI(this.itemURL()));
     	}catch(Exception e) {;}
     }
-     * 
-     */
+    */
     
-    /** Configures the UI for the Price Watcher App */
+    private boolean urlValid(String urlstr) {
+    		try {
+    			new URL(urlstr).toURI();
+    			return true;
+    		}
+    		catch(Exception e) {
+    			return false;
+    			}
+    		}
+
+	/** Configures the UI for the Price Watcher App */
     private void configureUI() {
         setLayout(new BorderLayout());
         Jmenubar();
