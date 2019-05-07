@@ -149,32 +149,41 @@ public class Main extends JFrame {
      * the item. 
      * @throws URISyntaxException 
      * @throws IOException */
-    private void viewPageClicked() { 
+    public void viewPageClicked() {
+//    	Item j = ItemManager.listModel.get(0);
     	String urlT = item.getURL();	
-    	
-    	if (urlValid(urlT)) { // Desktop.isDesktopSupported()
+    	if(true) {
+    		if (urlValid(urlT)) { // Desktop.isDesktopSupported()
             // Windows
-            try {
-				Desktop desktop = Desktop.getDesktop();
-				desktop.browse(new URI(urlT));
-			} catch (Exception e) {
-				e.printStackTrace();
-			} 
+        	try {
+            	Desktop desktop = Desktop.getDesktop();
+            	desktop.browse(new URI(urlT));
+            	}catch(Exception q) {q.printStackTrace();}
+    		
+//            try {
+//				Desktop desktop = Desktop.getDesktop();
+//				desktop.browse(new URI(urlT));
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} 
 //            catch (URISyntaxException e) {
 //				e.printStackTrace();
 //			}
-        } else {
-            ;
-        	Runtime runtime = Runtime.getRuntime();
-        	
-           String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
-            try {
-                Process process = runtime.exec(args);
+        	} else {
+        		;
+//        	Runtime runtime = Runtime.getRuntime();
+//        	
+//           String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
+//            try {
+//                Process process = runtime.exec(args);
+//            }
+//            catch (IOException e) {
+//            }
             }
-            catch (IOException e) {
-            }
-        }
-    	showMessage("View clicked!");
+    	}
+    	else
+    		;
+//    	showMessage("View clicked!");
     }
     
     /* 
@@ -344,8 +353,18 @@ public class Main extends JFrame {
         
         RemoveItem = new JButton(new ImageIcon(getImage("minus.png")));
         
+        
+        
+        
         Launch = new JButton(new ImageIcon(getImage("web.png")));
-        Launch.addActionListener(e -> viewPageClicked());
+        
+        Launch.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        			viewPageClicked();
+        	}	});
+        
+        
+        
         
         toolBar.add(CheckPrice);
         toolBar.add(AddItem);
@@ -395,16 +414,20 @@ public class Main extends JFrame {
     		}
     	});
     	
+    	
+    	
     	// needs to be further fixed
-    	items.addMouseListener = (new MouseAdapter() {
-        	public void mouseClicked(MouseEvent mouseEvent) {
-        		if(mouseEvent.getButton() == MouseEvent.BUTTON1){ ; }
-        		if(mouseEvent.getButton() == MouseEvent.BUTTON2){ ; }
-        		if(mouseEvent.getButton() == MouseEvent.BUTTON3){
-//        			RClickmenubar(); 
-        			}
-        	}
-    	});
+//    	items.addMouseListener = (new MouseAdapter() {
+//        	public void mouseClicked(MouseEvent mouseEvent) {
+//        		if(mouseEvent.getButton() == MouseEvent.BUTTON1){ ; }
+//        		if(mouseEvent.getButton() == MouseEvent.BUTTON2){ ; }
+//        		if(mouseEvent.getButton() == MouseEvent.BUTTON3){
+////        			RClickmenubar(); 
+//        			}
+//        	}
+//    	});
+    	
+    	
     	
 //		items.addMouseListener(event  -> {
 //			RClickmenubar();

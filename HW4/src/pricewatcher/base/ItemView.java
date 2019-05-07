@@ -61,7 +61,7 @@ public class ItemView extends JPanel {
         setBackground(Color.WHITE);
         addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-            	if (isViewPageClicked(e.getX(), e.getY()) && listener != null) {
+            	if (isViewPageClickedG(e.getX(), e.getY()) && listener != null) {
             		listener.clicked();
             	}
             }
@@ -127,7 +127,7 @@ public class ItemView extends JPanel {
      * @param y the y coordinate
      * @return true if within the boundaries 
      */
-    private boolean isViewPageClicked(int x, int y) {
+    private boolean isViewPageClickedG(int x, int y) {
     	if (x <0 || y <0 ) {
     		return false;
     	}	

@@ -96,7 +96,10 @@ public class WebPriceFinder extends pricefinder{
 		}
 		}
 	
-//	https://www.bestbuy.com/site/samsung-ue590-series-28-led-4k-uhd-monitor-black/5484022.p?skuId=5484022
+//	 Samsung Monitor:	https://www.bestbuy.com/site/samsung-ue590-series-28-led-4k-uhd-monitor-black/5484022.p?skuId=5484022
+// - Security Lights:	https://www.amazon.com/dp/B078P8LKTX/?coliid=I3KZEVBEU26Y7H&colid=7FH4WLYA9ET4&psc=0&ref_=lv_ov_lig_dp_it
+//   Google Home Hub: 	https://www.ebay.com/itm/Google-Home-Hub-with-Google-Assistant-GA00516-US-w-Nest-Wi-Fi-Video-Doorbell/323561077867?_trkparms=5373%3A5000006400%7C5374%3ATech%7C5079%3A5000006400
+//	 Heated Blanket:	https://www.amazon.com/dp/B0088AHJ76/ref=cm_gf_aQU_i6_d_c0_qd0_______________________ONArFiuxAeBGVF6YpPsi
 	
 	
 //	public void validVer() {

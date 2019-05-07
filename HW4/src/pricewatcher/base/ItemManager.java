@@ -43,11 +43,14 @@ public class ItemManager {
 		else
 			return false;
 	}
+//	public void update(){
+//		pricewatcher.web.FileItemManager.load();
+//	}
+	
 	/**	Adds an item to the list	*/
 	protected void Add(Item item) {
 		listModel.addElement(item);
 	}
-	
 	/** Obtains information from FileItemManager and send it to the list */
 	public Item add(String name, String url, float price) {
 		Item item = new Item(name, url, price);
@@ -85,7 +88,6 @@ public class ItemManager {
 	public Item Remove() {
 		
 		/* listModel.addListSelectionListener(new ListSelectionListener() {
-
     @Override
     public void valueChanged(ListSelectionEvent e) {
         System.out.println("Hello you selected me!  "
@@ -94,9 +96,7 @@ public class ItemManager {
 });
 		 * 
 		 */
-		
-			return listModel.remove(0);
-			
+			return listModel.remove(0);		
 	}
 	
 	/** Changes an item in the list */
@@ -105,9 +105,6 @@ public class ItemManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
-	
 	
 	/**	
 	 * Gets the size of any item in the list

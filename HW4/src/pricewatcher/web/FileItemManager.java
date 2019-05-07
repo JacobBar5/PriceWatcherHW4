@@ -38,7 +38,7 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 	@Override
 	public Item add(String name, String url, float price) { 
 		Item item = super.add(name, url, price);
-		System.out.println("add method");
+		System.out.println("Adding Item");
 
 		if(item != null) {
 			save();
@@ -87,7 +87,6 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 //			// TODO Auto-generated catch block
 //			e2.printStackTrace();
 //		}
-		System.out.println("File has be made");
 		try {
 		    writer = new PrintWriter(getClass().getResource("data4.txt").getPath());
 			JSONArray array  = new JSONArray();
@@ -95,11 +94,11 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 				Item e = listModel.get(i);
 				array.put(e.toJson());
 			}
-			System.out.println("Test ");
-			System.out.println(array.toString());
+//			System.out.println(array.toString());
 			writer.write(array.toString());
 			writer.flush();
 			writer.close();
+			System.out.println("File Updated");
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -108,17 +107,17 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 
 	}
 	
-
 	protected void load() {
 //		File file = new File ("/Users/Mildred/git/PriceWatcher/HW 3");
 //		Item localItem = this;
-		try(BufferedReader reader = new BufferedReader(new FileReader("data.txt"))){
+		System.out.println("load method");
+		try(BufferedReader reader = new BufferedReader(new FileReader(getClass().getResource("data4.txt").getPath()))){
 			JSONTokener tokener = new JSONTokener(reader);
 			JSONArray array = new JSONArray(tokener);
 			for(int i = 0; i < array.length(); i++) {
 				Item item = Item.fromJson(array.getJSONObject(i));
 				super.Add(item);
-									// more code needed
+									// more code needed?
 			}			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
