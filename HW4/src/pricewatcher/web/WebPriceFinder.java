@@ -43,7 +43,7 @@ public class WebPriceFinder extends pricefinder{
 		  BufferedReader in = new BufferedReader(reader);
 		  String line;
 		  Pattern bestBuy = Pattern.compile("Your price for this item is (\\$)(\u003c!-- -->)(\\d+\\.\\d+)");
-		  Pattern amazon = Pattern.compile(".a-size-medium a-color-price priceBlockBuyingPriceString\">(\\$\\d+\\.\\d+)");
+		  Pattern amazon = Pattern.compile(".a-size-medium a-color-price priceBlockBuyingPriceString\">(\\$)(\\d+\\.\\d+)");
 		  Pattern ebay = Pattern.compile("<span class=\"notranslate\" id=\"prcIsum\" itemprop=\"price\"\\s*style=\"\" content=\"(\\d+\\.\\d+)");
 		  Matcher m; 
 
@@ -52,19 +52,19 @@ public class WebPriceFinder extends pricefinder{
 			   m = bestBuy.matcher(line);
 			  if (m.find()) {
 			        output = m.group(3);
-			        System.out.println(output);
+			        return Float.valueOf(output);
 			    }
 			  
 			  m = amazon.matcher(line);
 			  if (m.find()) {
-			        output = m.group(1);
-			        System.out.println(output); 
+			        output = m.group(2);
+			        return Float.valueOf(output);
 			  }
 			  
 			  m = ebay.matcher(line);
 			  if (m.find()) {
 			        output = m.group(1);
-			        System.out.println("$"+output); 
+			        return Float.valueOf(output);
 			  } 
 			  
 			  else {
