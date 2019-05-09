@@ -151,16 +151,23 @@ public class Main extends JFrame {
      * @throws IOException */
     public void viewPageClicked() { // String urlT
     	
-//    	JList<Item> j = list;
-    	String urlT = item.getURL();	
-//    	if(true) {
+//    	Item j = list(0);
     	
-    		if (urlValid(urlT)) { // Desktop.isDesktopSupported()
+    	System.out.println("item launch tested");
+    	
+//    	JList<Item> urlT = list.getInstance();
+    	String urlT = Item.urlS2NS();
+    	
+    	System.out.println("item launch tested 2");
+//    	if(true) {
+    	if (urlValid(urlT)) { // Desktop.isDesktopSupported()
             // Windows
-        	try {
-            	Desktop desktop = Desktop.getDesktop();
-            	desktop.browse(new URI(urlT));
-            	}catch(Exception q) {q.printStackTrace();}
+    		try {
+    			Desktop desktop = Desktop.getDesktop();
+    			desktop.browse(new URI(urlT));
+    			}catch(Exception q) {
+    				q.printStackTrace();
+    				}
     		
 //            try {
 //				Desktop desktop = Desktop.getDesktop();
@@ -171,22 +178,21 @@ public class Main extends JFrame {
 //            catch (URISyntaxException e) {
 //				e.printStackTrace();
 //			}
-        	} else {
-        		;
-//        	Runtime runtime = Runtime.getRuntime();
-//        	
-//           String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
-//            try {
-//                Process process = runtime.exec(args);
-//            }
-//            catch (IOException e) {
-//            }
-            }
+    		} 
+    	else {
+    		Runtime runtime = Runtime.getRuntime();
+    		
+    		String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
+    		try {
+    			Process process = runtime.exec(args);
+    			}
+    		catch (IOException e) {;}
+    		}
   //    	}
   //    	else
   //    		;
 //    	showMessage("View clicked!");
-    }
+    	}
     
     /* 
     /** Callback to be invoked when the view-page icon is clicked.

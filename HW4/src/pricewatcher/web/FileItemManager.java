@@ -100,6 +100,7 @@ public class FileItemManager extends ItemManager{ // has to called when remove b
 			}
 //			System.out.println(array.toString());
 			writer.write(array.toString());
+//			writer.write("");	// need to print each item as a new line
 			writer.flush();
 			writer.close();
 			System.out.println("File Updated");
