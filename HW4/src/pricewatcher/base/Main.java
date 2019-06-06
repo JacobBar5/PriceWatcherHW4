@@ -59,7 +59,7 @@ import pricewatcher.base.Item;
 public class Main extends JFrame {
 
     /** Default dimension of the dialog. */
-    private final static Dimension DEFAULT_SIZE = new Dimension(500, 800);
+    private final static Dimension DEFAULT_SIZE = new Dimension(500, 600);
       
     /** Special panel to display the watched item. */
     private ItemView itemView;
