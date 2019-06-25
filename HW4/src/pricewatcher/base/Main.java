@@ -156,18 +156,19 @@ public class Main extends JFrame {
     	System.out.println("item launch tested");
     	
 //    	JList<Item> urlT = list.getInstance();
-    	String urlT = Item.urlS2NS();
+    	// String urlT = Item.urlS2NS();
     	
     	System.out.println("item launch tested 2");
 //    	if(true) {
-    	if (urlValid(urlT)) { // Desktop.isDesktopSupported()
+    	if (urlValid(Item.urlS2NS())) { // Desktop.isDesktopSupported()
             // Windows
     		try {
     			Desktop desktop = Desktop.getDesktop();
-    			desktop.browse(new URI(urlT));
+    			desktop.browse(new URI(Item.urlS2NS()));
     			}catch(Exception q) {
     				q.printStackTrace();
     				}
+    		
     		
 //            try {
 //				Desktop desktop = Desktop.getDesktop();
@@ -180,14 +181,30 @@ public class Main extends JFrame {
 //			}
     		} 
     	else {
-    		Runtime runtime = Runtime.getRuntime();
     		
-    		String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
     		try {
-    			Process process = runtime.exec(args);
-    			}
-    		catch (IOException e) {;}
+				Desktop desktop = Desktop.getDesktop();
+				desktop.browse(new URI(Item.urlS2NS()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+// //           catch (URISyntaxException e) {
+// //			e.printStackTrace();
+// //		}
+    		
+//    		System.out.println("Test");
+//    		
+//    		Runtime runtime = Runtime.getRuntime();
+//    		
+//    		String[] args = { "osascript", "-e", "open location \"" +item.getURL()+ "\"" };
+//    		try {
+//    			Process process = runtime.exec(args);
+//    			}
+//    		catch (IOException e) {;}
     		}
+    	
+    	
+    	
   //    	}
   //    	else
   //    		;
